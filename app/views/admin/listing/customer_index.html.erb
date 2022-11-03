@@ -1,0 +1,39 @@
+
+<table class="table align-middle m-5 mb-0 bg-white">
+  <thead class="bg-light">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+  <% if @customers.present? %>
+  <%  @customers.each do | customer | %>
+    <tr>
+    <td>
+        <p class="fw-bold mb-1"><%= customer.username %></p>
+       
+      </td>
+      <td>
+        <div class="d-flex align-items-center">
+          <img
+              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+              alt=""
+              style="width: 45px; height: 45px"
+              class="rounded-circle"
+              />
+          <div class="ms-3">
+            <p class="fw-normal mb-1"><%= customer.email%></p>
+          </div>
+        </div>
+      </td>
+     
+    </tr>
+    <% end %> 
+  <% else %>
+      <h4> Oops , Here is no customer to show  </h4> 
+  <% end %>
+ 
+  </tbody>
+</table>   

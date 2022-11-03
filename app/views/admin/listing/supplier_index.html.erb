@@ -1,0 +1,35 @@
+<table class="table align-middle m-5 mb-0 bg-white">
+  <thead class="bg-light">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @suppliers.present? %>
+      <% @suppliers.each do | supplier | %>
+      <tr>
+        <td>
+          <p class="fw-bold mb-1"><%= supplier.username %></p>
+        </td>
+        <td>
+          <div class="d-flex align-items-center">
+            <img
+              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+              alt=""
+              style="width: 45px; height: 45px"
+              class="rounded-circle"
+            />
+            <div class="ms-3">
+              <p class="fw-normal mb-1"><%= supplier.email%></p>
+              <p class="text-muted mb-0"></p>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <% end %>
+    <% else %>
+       <h4> Oops , Here  is  no supplier to show </h4>
+    <% end  %>
+  </tbody>
+</table>

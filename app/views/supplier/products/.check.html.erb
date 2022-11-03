@@ -1,0 +1,12 @@
+<% @products.each do |cat| %>
+    <br>
+  <img src="<%= cat.image %>"><br>  
+  
+    Name - <%= cat.name %><br>
+    Details - <%= cat.description %> <br>  
+    Price  <%= cat.price %><br><br>
+    
+  <% end %>
+  <a href="/supplier/add/<%= params[:id] %>">Add product</a>
+   
+   

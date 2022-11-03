@@ -1,0 +1,43 @@
+
+<%= stylesheet_link_tag "products", :media => "all"%>
+
+<div class="container d-flex justify-content-center mt-50 mb-50">
+  <div class="row">
+    <% if @products.present? %>
+    <% @products.each do |cat| %>
+   
+      <div class="col-md-4 mt-2">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-img-actions">
+              <img
+                src="<%= cat.image %>"
+                class="card-img "
+                width="50px"
+                height="150px"
+                alt=""
+              />
+            </div>
+          </div>  
+          <div class="card-body bg-light text-center">
+            <div class="mb-2">
+              <h6 class="font-weight-semibold mb-2">
+                <a href="#" class="text-default mb-2" data-abc="true"
+                  ><%=cat.name %></a
+                >
+              </h6>
+            </div>  
+            <h3 class="mb-0 font-weight-semibold mb-2">₹ <%=cat.price %></h3>
+
+            <%= button_to 'Add to cart',"/customer/cart/#{cat.id}", method:"post", class:"btn btn-sm btn-outline-success"%>
+
+          </div>
+        </div>
+      </div>       
+    <% end %>   
+    <%else%>
+     <h3>Products Not Available For This Category </h3>
+    <%end%>
+  </div>
+</div>
+

@@ -1,0 +1,22 @@
+
+<%= stylesheet_link_tag "customer_home", :media => "all"%>
+<div class="container mt-5 mb-3" ">
+<h1 class ="heading mt-5 mb-5">Our Exclusive Categories</h1>
+    <div class="row">
+    <% @categories.each do |c| %>
+      <% if !c.maincategory_id.present?%>
+        <div class="col-md-4">
+            <div class="card p-3 mb-2">
+               
+                <div class="mt-5">
+                
+                    <h3 class="heading"><%= link_to c.name, customer_category_path(c.id)%></h3>
+                   
+                </div>
+            </div>
+        </div>
+        <% end %>  
+      <% end %>
+       
+    </div>
+</div>

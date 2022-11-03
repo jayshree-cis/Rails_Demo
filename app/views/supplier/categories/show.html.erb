@@ -1,0 +1,18 @@
+
+
+
+<div class="container m-5">
+
+<% @subcategories.each do | cat |%>
+  
+    <div class="card text-dark bg-light rounded m-3" style="max-width: 25rem; ">
+
+    <div class="card-body">
+    <h5 class="card-title "><%= link_to cat.name,supplier_product_path(cat.id), class:'text-dark'%></h5>
+   </div>
+  </div>
+
+
+<% end %> 
+
+</div>

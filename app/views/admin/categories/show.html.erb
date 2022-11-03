@@ -1,0 +1,49 @@
+<table class="table align-middle m-5 mb-5 mt-5 bg-black">
+  <h4 class="heading m-5 mt-5 mb-5">Our Exclusive <%= @category.name %></h4>
+  <thead class="bg-light">
+    <tr>
+      <th>Category Name</th>
+      <th class="ml-5">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @category.subcategories.each do |subcategory| %>
+    <tr>
+      <td>
+        <div class="d-flex align-items-center">
+          <div class="ms-3">
+            <p class="fw-bold text-white mb-1"><%= subcategory.name%></p>
+          </div>
+        </div>
+      </td>
+
+      <td>
+        <button
+          type="button"
+          class="btn btn-link btn-rounded btn-sm fw-bold"
+          data-mdb-ripple-color="danger"
+        >
+          <%= link_to "Edit", edit_admin_category_path(subcategory), class: 'btn
+          btn-link btn-rounded btn-sm fw-bold' %>
+        </button>
+        <button
+          type="button"
+          class="btn btn-link btn-rounded btn-sm fw-bold"
+          data-mdb-ripple-color="danger"
+        >
+          <%= button_to 'Remove ', admin_category_path(subcategory.id), class: 'btn
+          btn-link btn-rounded btn-sm fw-bold' %>
+        </button>
+      </td>
+    </tr>
+
+    <% end %>
+  </tbody>
+</table>
+<div class="container-fluid m-5">
+  <h1>
+    <button class="btn btn-dark justify-content-md-end">
+      <a href="/admin/subcategories/<%=@category.id%>">Add Subcategory </a>
+    </button>
+  </h1>
+</div>

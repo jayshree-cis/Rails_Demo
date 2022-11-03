@@ -1,0 +1,19 @@
+
+development:
+  cloud_name: dmusf8jak
+  api_key: '741315419859678'
+  api_secret: WYHSWjsT7ECATv0SMzBGP9vzG8E
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dmusf8jak
+  api_key: '741315419859678'
+  api_secret: WYHSWjsT7ECATv0SMzBGP9vzG8E
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dmusf8jak
+  api_key: '741315419859678'
+  api_secret: WYHSWjsT7ECATv0SMzBGP9vzG8E
+  enhance_image_tag: true
+  static_file_support: false

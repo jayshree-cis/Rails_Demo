@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <div class="row mx-3">
+    <% @products.each do |product| %>
+    <div class="col-4 p-0 mx">
+      <div class="card my-3" style="width: 18rem;">
+        <img
+          class="card-img-top"
+          height="200px"
+          width="300px"
+          src="<%= product.image %>"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <p class="card-title"><%=product.name %></p>
+          <p class="card-title"><%=product.price %></p>
+          <p class="card-text"><%#=cat.description%></p>
+        </div>
+      </div>
+    </div>
+    <br />
+    <% end %>
+  </div>
+</div>

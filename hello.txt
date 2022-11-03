@@ -1,0 +1,66 @@
+in front end manage categories and subcategories to show the product related with categories
+in backend -write api to create cart
+           -managed association related with cart  
+
+           ₹
+===============================================================================================================
+
+
+stripe ---->
+
+pk_test_51Lxoe1SGUnD41ZxPPeW9Qtkwx9BiHyTvh46HhrT5kbGewixhPqQFoxZRtUVEmpNTv0OqOSkWyvJfJWmo0JNmg9Ju00YlKKfLw6
+
+sk_test_51Lxoe1SGUnD41ZxPPp5XRizkX49a50LzdYHMj5urPxusSZYUVdwVN8z2XbK6Ock5zScTUPqNY3z3iOxMgn3OVubS00ffZAm567
+
+
+Your pairing code is: sleek-humor-robust-snazzy
+
+> Done! The Stripe CLI is configured for jay-demo-new with account id acct_1Lxoe1SGUnD41ZxP
+
+
+"id": "prod_MhDbYNgSi5saqT",
+  "object": "product",
+  "active": true,
+  "attributes": [],
+  "created": 1666950486,
+  "default_price": null,
+  "description": "Created with the Stripe CLI",
+  "images": [],
+  "livemode": false,
+  "metadata": {},
+  "name": "jay-demo-new",
+  "package_dimensions": null,
+  "shippable": null,
+  "statement_descriptor": null,
+  "tax_code": null,
+  "type": "service",
+  "unit_label": null,
+  "updated": 1666950486,
+  "url": null
+------------------------------------------------
+Your pairing code is: pep-nice-strong-gems
+This pairing code verifies your authentication with Stripe.
+Press Enter to open the browser or visit https://dashboard.stripe.com/stripecli/confirm_auth?t=PLdru0MCvpcLMWgdVjOgToHHeELWHSDo (^C to quit)
+> Done! The Stripe CLI is configured for jay-demo-new with account id acct_1Lxoe1SGUnD41ZxP
+------------------------------------------------
+
+ Your webhook signing secret is whsec_e98f64c07acfb91c12114ac31fb7fdc94a5e9301bd30ad36735b5019dff39b7e 
+
+
+================================================================================================================
+
+def create
+    debugger
+    if current_cart
+      @current_cart = current_user.carts.find_by(status: true).id
+      price = Product.find(params[:id]).price
+      CartProduct.create(cart_id: @current_cart, product_id: params[:id], total_amount: price)
+      redirect_to "/customer/carts"
+    else
+      Cart.create(user_id: current_user.id)
+      @cart = Cart.find_by(user_id: current_user.id).id
+    end
+    
+  end
+
+  current_user.carts.find_by(id: cart).update(status: false)

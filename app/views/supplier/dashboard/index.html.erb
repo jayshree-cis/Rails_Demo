@@ -1,0 +1,17 @@
+
+<div class="container m-5">
+<div class="row">
+<% @categories.each do | cat |%>
+   <% if !cat.maincategory_id.present?%>
+   
+    <div class="card text-dark bg-secondary p-3 m-3" style="max-width: 25rem; ">
+
+    <div class="card-body">
+    <h5 class="card-title "><%= link_to cat.name, supplier_category_path(cat.id), class:'text-dark'%></h5>
+   </div>
+  </div>
+
+<% end %>
+<% end %> 
+</div>
+</div>

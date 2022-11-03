@@ -1,0 +1,55 @@
+
+<div class="container-fluid m-5">
+<h1>
+<button class='btn btn-dark justify-content-md-end'>
+<%= link_to "Add New ", new_admin_category_path ,class:'btn btn-dark justify-content-md-end'%>
+  </button>
+</h1>
+</div>
+<table class="table align-middle m-5 mb-5 mt-5 bg-black">
+  <thead class="bg-light">
+    <tr>
+      <th>Category Name</th>
+      <th class="ml-5">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <% unless category.maincategory_id.present?%>
+        <tr>
+          <td>
+            <div class="d-flex align-items-center">
+              <div class="ms-3">
+                <p class="fw-bold text-white mb-1"><%=  category.name%></p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-link btn-rounded btn-sm fw-bold"
+              data-mdb-ripple-color="danger"
+              >
+              <%= link_to "update ", edit_admin_category_path(category) , class: 'btn btn-link btn-rounded btn-sm fw-bold' %> 
+            </button>
+            <button
+              type="button"
+              class="btn btn-link btn-rounded btn-sm fw-bold"
+              data-mdb-ripple-color="danger"
+              >
+              <%= link_to "show", admin_category_path(category.id) , class: 'btn btn-link btn-rounded btn-sm fw-bold' %> 
+            </button>
+            <button
+              type="button"
+              class="btn btn-link btn-rounded btn-sm fw-bold"
+              data-mdb-ripple-color="dark"
+              >
+              <%= button_to 'Remove ', admin_category_path(category.id), method: "delete"  , class: 'btn btn-link btn-rounded btn-sm fw-bold'%> 
+            </button>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<%#= link_to "show", admin_category_path(cat.id)%> </h5>

@@ -1,0 +1,16 @@
+ 
+<%= stylesheet_link_tag "customer_home", :media => "all"%>
+<div class="container mt-5 mb-3" ">
+    <div class="row">
+    <% @subcategories.each do |cat| %>
+        <div class="col-md-3">
+            <div class="card p-3 mb-2">               
+                <div class="mt-5">
+                <% cat.name %>
+                <h3><%= link_to cat.name,customer_product_path(cat.id) %></h3>                   
+                </div>
+            </div>
+        </div>       
+    <% end %>       
+    </div>
+</div>

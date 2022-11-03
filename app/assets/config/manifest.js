@@ -1,0 +1,9 @@
+//= link_tree ../images
+//= link_tree ../../javascript .js
+//= link_tree ../../../vendor/javascript .js
+//= link_tree ../builds
+//= link products.css
+//= link customer_home.css
+//= link add_product_form.css
+//= link side_bar.css
+//= link cart.css
